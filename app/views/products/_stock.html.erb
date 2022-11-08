@@ -1,0 +1,57 @@
+<% if !clarencehouse? || (clarencehouse? && user_signed_in?) %>
+  <div class="product_stock" id="product-stock-container" data-target="product-stock.productStockContainer">
+
+    <% if @product.is_discontinued? %>
+      <div class="discontinued">This product has been discontinued.</div>
+    <% end %>
+
+    <% if (user_signed_in? && current_user.has_role?(:view_stock)) %>
+
+      <div class="stock-errors hidden" data-target="product-stock.stockErrors">
+        Sorry for the inconvenience.  Information is not available at this time.
+      </div>
+      <div class="stock stock-amount" data-target="product-stock.stockContent">
+        <% if clarencehouse? %>
+          Amount in stock:
+        <% else %>
+          <strong>Amount in stock:</strong>
+        <% end %>
+        <span class="contents">
+          <% if @stock_output.present? %>
+
+            <% if @has_stock || clarencehouse? %>
+              <%= "#{@stock_total} #{@stock_unit}" %>
+            <% else %>
+              <%= "0" if @small_cuts.blank? %>
+              <%= "Only Small Cuts Available" if @small_cuts.present? %>
+            <% end %>
+
+            <% if @bolts.present? %>
+              <%= button_tag(type: 'button', class: 'o-btn mb-2 pl-3 text-blue-500', data: { action: 'product-stock#showBoltList', target: 'product-stock.showBoltsLink' }) do %>
+                Show more details 
+                <i class="far fa-chevron-circle-down" data-target="product-stock.showBoltList"></i>
+              <% end %>
+              <%= button_tag(type: 'button', class: 'o-btn mb-2 pl-3 text-blue-500 hidden', data: { action: 'product-stock#hideBoltList', target: 'product-stock.hideBoltsLink' }) do %>
+                Hide details 
+                <i class="far fa-chevron-circle-up"></i>
+              <% end %>
+            <% end %>
+
+            <% if @has_availability %>
+              <% if @has_stock %>
+                (<%= simple_format(@stock_output[:availability]) %>)
+              <% else %>
+                <%= simple_format(@stock_output[:availability]) %>
+              <% end %>
+            <% end %>
+
+          <% elsif stock %>
+            <%= "#{stock} #{@product.measured_unit['short'][(stock == 1) ? 'singular' : 'plural']}" %>
+          <% else %>
+            <%= image_tag("ajax-throbber.gif") %>
+          <% end %>
+        </span>
+      </div>
+    <% end %>
+  </div>
+<% end %>

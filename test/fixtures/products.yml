@@ -1,0 +1,58 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+test:
+  id: 2561809
+  pattern_name: Wrangler
+  color_name: Poppy
+  price:
+    cad:
+      per_unit:
+        export: 28.9
+        single: 32.3
+        tiered:
+      per_piece:
+      per_halfpiece:
+      per_piece_export:
+      per_halfpiece_export:
+    usd:
+      per_unit:
+        export: 17.0
+        single: 19.0
+        tiered:
+      per_piece: 11.95
+      per_halfpiece: 12.45
+      per_piece_export: 11.65
+      per_halfpiece_export: 12.15
+    search_reference: 19.0
+  stock:
+    current:
+      bolts:
+        "1971":
+          dye_lot: "0"
+          quantity: 27.73
+        "473563":
+          dye_lot: "0"
+          quantity: 60.0
+        "473564":
+          dye_lot: "0"
+          quantity: 60.0
+        "473565":
+          dye_lot: "0"
+          quantity: 60.0
+        "473566":
+          dye_lot: "0"
+          quantity: 60.0
+        "473567":
+          dye_lot: "0"
+          quantity: 60.0
+        "473568":
+          dye_lot: "0"
+          quantity: 60.0
+        "473569":
+          dye_lot: "0"
+          quantity: 60.0
+      memos: 1
+      total: 447
+    expected: []
+    availability: ""
+    total_reserved: 0.0

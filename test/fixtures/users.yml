@@ -1,0 +1,3 @@
+test:
+  email: test@example.com
+  password_digest: MyString

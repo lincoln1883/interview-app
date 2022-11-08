@@ -1,0 +1,11 @@
+var product_stock_elem = document.getElementById("product-stock-container");
+
+if(product_stock_elem) {
+  product_stock_elem.outerHTML = "<%= j(render("products/stock")) %>";
+}
+
+var product_bolts_and_small_cuts_elem = document.getElementById("bolts-and-small-cuts-container");
+
+if(product_bolts_and_small_cuts_elem) {
+  product_bolts_and_small_cuts_elem.outerHTML = "<%= j(render("products/bolt_list")) %>";
+}

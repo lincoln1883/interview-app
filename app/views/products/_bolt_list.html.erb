@@ -1,0 +1,41 @@
+<div id="bolts-and-small-cuts-container" class="bolts-and-small-cuts <%= " hidden" unless clarencehouse? %>" data-target="product-stock.boltsAndSmallCutsContainer">
+  <% if @product.present? && user_signed_in? %>
+    <% if @product.fabric? || @product.trimming? || @product.wallcovering? %>
+
+      <% if @regular_bolts_dye_lots.present? %>
+        <div class="bolt-list" data-target="product-stock.boltsList">
+          <% if clarencehouse? %>
+            <h6 class="product-accordion--title">
+              <div class="title">Available Bolts</div>
+              <%= content_tag(:i, '', class: 'far fa-chevron-down') %>
+            </h6>
+          <% end %>
+          <div class="stock-bolts-container product-accordion--content">
+            <% @regular_bolts_dye_lots.each do |lot, bolts| %>
+              <%= render 'products/bolt_details', bolt_type: :regular_bolts, lot: lot, bolts: bolts %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+
+      <%= "<hr>".html_safe if @regular_bolts_dye_lots.present? && @small_cuts_dye_lots.present? && !clarencehouse? %>
+
+      <% if @small_cuts_dye_lots.present? %>
+        <div class="bolt-list small-cuts-list" data-target="product-stock.smallCutsList">
+          <% if @has_stock %>
+            <h6 class="product-accordion--title">
+              <div class="small-cuts-title"><span class="icon"><i class="far fa-info-square"></i></span>  <em>Small cuts under <%= @product.upholstery? ? 3 : 5 %> yards are not included in the total amount in stock.</em></div>
+              <%= content_tag(:i, '', class: 'far fa-chevron-down') if clarencehouse? %>
+            </h6>
+          <% end %>
+          <div class="stock-bolts-container product-accordion--content">
+            <% @small_cuts_dye_lots.each do |lot, bolts| %>
+              <%= render 'products/bolt_details', bolt_type: :small_cuts, lot: lot, bolts: bolts %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+
+    <% end %>
+  <% end %>
+</div>

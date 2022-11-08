@@ -1,0 +1,7 @@
+<%= link_to(product) do %>
+  <%= image_tag(product_thumbnail_image_url(product)) %>
+
+  <div class="mt-1">
+    <strong class="font-semibold"><%= product.pattern_name %></strong> <%= product.color_name %>
+  </div>
+<% end %>

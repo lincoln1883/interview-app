@@ -1,0 +1,24 @@
+<div class="bolts lot-<%= lot %>">
+  <% if lot.to_s != "0" %>
+    <div class="dye-lot">
+      <%= "Dye Lot ##{lot}" %>
+    </div>
+  <% end %>
+  <div class="bolts-and-yards">
+    <% bolts.each do |key, bolt| %>
+      <div class="details-container border p-4">
+        <div class="bolt">
+          <%= "Bolt ##{key}" if bolt_type == :regular_bolts %>
+          <%= "Small Cut ##{key}" if bolt_type == :small_cuts %>
+        </div>
+        <div class="yards">
+          <%= bolt[:quantity] %> <%= @stock_output[:unit][:short][bolt[:quantity] == 1 ? :singular : :plural] %>
+          <% if clarencehouse? %>
+            <span>(<%= yards_to_meter(bolt[:quantity], 1, true) %> m)</span>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="clear-both"></div>
+</div>
