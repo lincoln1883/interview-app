@@ -11,6 +11,29 @@ This repo is designed to be a take home test to give you a chance to work throug
 3. **Do your own thing.** The tasks below are just guidelines. If you review the code and see something that sticks out to you, feel free to work on that. Just make sure it still gives us a good feel for your work.
 4. **Send it back to us.** Give us access to your fork so we can see your changes. We'll go through the commits you make and try to understand the thinking behind them. We may have some questions for you in a follow up interview!
 
+### Getting set up
+
+You need:
+
+* A working Ruby 3 setup (see [`.ruby-version`](.ruby-version) for the exact version).
+* PostgreSQL (any recent version should be fine)
+
+With those things in place, run:
+
+```sh
+git clone git@github.com:fabricut/interview-app.git
+cd interview-app
+bundle
+
+# To set up the database and load the seed data:
+bin/rails db:prepare
+
+# To start the development server:
+bin/dev
+```
+
+The app should be running at http://localhost:3000/products.
+
 ## Things you might work on:
 
 - [ ] Refactor the [`ApiController#stock_and_pricing`](app/controllers/api_controller.rb#L4) action.
