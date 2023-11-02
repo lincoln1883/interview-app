@@ -53,7 +53,7 @@ class ApiController < ApplicationController
       stock: product.stock(current_user)&.merge(unit: product.measured_unit)
     }
 
-    output[:uom_display_text] = product.measured_unit["uom_display_text"] if product.measured_unit["uom_display_text"].present?
+    output[:uom_display_text] = product.measured_unit["uom_display_text"].presence
 
     if product.wallcovering?
       output[:measured_unit] = product.measured_unit["long"]["singular"].downcase
