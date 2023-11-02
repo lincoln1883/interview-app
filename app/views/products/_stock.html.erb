@@ -5,7 +5,7 @@
       <div class="discontinued">This product has been discontinued.</div>
     <% end %>
 
-    <% if (user_signed_in? && current_user.has_role?(:view_stock)) %>
+    <% if user_signed_in? && current_user.has_role?(:view_stock) %>
 
       <div class="stock-errors hidden" data-target="product-stock.stockErrors">
         Sorry for the inconvenience.  Information is not available at this time.
