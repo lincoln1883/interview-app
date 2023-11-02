@@ -36,8 +36,8 @@ The app should be running at http://localhost:3000/products.
 
 ## Things you might work on:
 
-- [ ] Refactor the [`ApiController#stock_and_pricing`](app/controllers/api_controller.rb#L4) action.
-- [ ] Refactor the [`PricingHelper#pricing_html`](app/helpers/pricing_helper.rb#L4) helper.
+- [X] Refactor the [`ApiController#stock_and_pricing`](app/controllers/api_controller.rb#L4) action.
+- [X] Refactor the [`PricingHelper#pricing_html`](app/helpers/pricing_helper.rb#L4) helper.
 - [ ] Remove the need for [`Rails.ajax`](app/javascript/controllers/product_stock_controller.js#L35), possibly using [Turbo](https://turbo.hotwired.dev).
 - [ ] Improve the Stimulus controller to be more generic and reusable. Maybe it should be split up.
 - [ ] Add tests, especially if you refactor the pricing logic in the [`Product`](app/models/product.rb) model.
@@ -45,8 +45,8 @@ The app should be running at http://localhost:3000/products.
 
 Bonus UI points:
 
-- [ ] Change the font to Lato.
-- [ ] Make the layout look nicer and work on mobile.
+- [X] Change the font to Lato.
+- [X] Make the layout look nicer and work on mobile.
 
 ## Things to keep in mind:
 
